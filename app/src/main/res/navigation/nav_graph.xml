@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.snigdhaapp.views.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first" >
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_cameraView"
+            app:destination="@id/cameraView" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.example.snigdhaapp.views.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second" >
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_cameraView"
+            app:destination="@id/cameraView" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/cameraView"
+        android:name="com.example.snigdhaapp.views.CameraView"
+        android:label="fragment_camera_view"
+        tools:layout="@layout/fragment_camera_view" >
+        <action
+            android:id="@+id/action_cameraView_to_previewImage2"
+            app:destination="@id/previewImage2" />
+    </fragment>
+    <fragment
+        android:id="@+id/previewImage2"
+        android:name="com.example.snigdhaapp.compose.previewImage"
+        android:label="fragment_preview_image"
+        tools:layout="@layout/fragment_preview_image" >
+        <argument
+            android:name="photouri"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_previewImage2_to_homeScreen"
+            app:destination="@id/homeScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="com.example.snigdhaapp.views.homeScreen"
+        android:label="fragment_home_screen"
+        tools:layout="@layout/fragment_home_screen" />
+</navigation>
